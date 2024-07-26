@@ -1,0 +1,39 @@
+product:
+  type: lib
+  platforms: [jvm, js, wasm, android, linuxX64, linuxArm64, tvosArm64, tvosX64, tvosSimulatorArm64, macosX64, macosArm64, iosArm64, iosSimulatorArm64, iosX64, watchosArm64, watchosArm32, watchosDeviceArm64, watchosSimulatorArm64, mingwX64]
+
+apply: [ ../common.module-template.yaml ]
+
+aliases:
+  - posix: [linuxX64, linuxArm64, tvosArm64, tvosX64, tvosSimulatorArm64, macosX64, macosArm64, iosArm64, iosSimulatorArm64, iosX64, watchosArm64, watchosArm32, watchosDeviceArm64, watchosSimulatorArm64]
+  - jvmAndAndroid: [jvm, android]
+  - concurrent: [jvm, android, linuxX64, linuxArm64, tvosArm64, tvosX64, tvosSimulatorArm64, macosX64, macosArm64, iosArm64, iosSimulatorArm64, iosX64, watchosArm64, watchosArm32, watchosDeviceArm64, watchosSimulatorArm64, mingwX64]
+
+dependencies:
+  - com.soywiz:korlibs-checksum:6.0.0: exported
+  - com.soywiz:korlibs-compression:6.0.0: exported
+  - com.soywiz:korlibs-jseval:6.0.0: exported
+  - com.soywiz:korlibs-io-vfs:6.0.0: exported
+  - com.soywiz:korlibs-io-stream:6.0.0: exported
+  - com.soywiz:korlibs-io-network-core:6.0.0: exported
+  - com.soywiz:korlibs-math-core:6.0.0: exported
+  - com.soywiz:korlibs-memory:6.0.0: exported
+  - com.soywiz:korlibs-ffi:6.0.0: exported
+  - com.soywiz:korlibs-crypto:6.0.0: exported
+  - com.soywiz:korlibs-encoding:6.0.0: exported
+  - com.soywiz:korlibs-platform:6.0.0: exported
+  - com.soywiz:korlibs-datastructure:6.0.0: exported
+  - com.soywiz:korlibs-number:6.0.0: exported
+  - com.soywiz:korlibs-time-core:6.0.0: exported
+  - com.soywiz:korlibs-logger:6.0.0: exported
+  - com.soywiz:korlibs-dyn:6.0.0: exported
+  - com.soywiz:korlibs-string:6.0.0: exported
+  - com.soywiz:korlibs-serialization:6.0.0: exported
+  - com.soywiz:korlibs-io-fs:6.0.0
+  - org.jetbrains.kotlinx:atomicfu:0.24.0: exported
+
+test-dependencies:
+  - org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0-RC
+  #- org.mozilla:rhino:1.7.15
+  - org.openjdk.nashorn:nashorn-core:15.4
+  - com.soywiz:korlibs-time:6.0.0
