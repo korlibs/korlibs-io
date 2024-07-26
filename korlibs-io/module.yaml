@@ -18,7 +18,7 @@ dependencies:
   - com.soywiz:korlibs-io-network-core:6.0.0: exported
   - com.soywiz:korlibs-math-core:6.0.0: exported
   - com.soywiz:korlibs-memory:6.0.0: exported
-  - com.soywiz:korlibs-ffi:6.0.0: exported
+  - com.soywiz:korlibs-ffi-legacy:6.0.0: exported
   - com.soywiz:korlibs-crypto:6.0.0: exported
   - com.soywiz:korlibs-encoding:6.0.0: exported
   - com.soywiz:korlibs-platform:6.0.0: exported
