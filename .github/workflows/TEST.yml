@@ -32,7 +32,7 @@ env:
 jobs:
   test:
     strategy:
-      fail-fast: true # Once working, comment this
+      #fail-fast: true # Once working, comment this
       matrix:
         include:
           - { outputKey: testMacosIos, os: macos-13, testTask: jvmTest macosX64Test iosX64Test, buildTasks: publishMacosArm64PublicationToMavenLocal }
