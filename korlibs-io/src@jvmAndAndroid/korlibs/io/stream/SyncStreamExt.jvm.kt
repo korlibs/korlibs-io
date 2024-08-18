@@ -24,21 +24,8 @@ class FileSyncStreamBase(val file: java.io.File, val mode: String = "r") : SyncS
 
 fun File.openSync(mode: String = "r"): SyncStream = FileSyncStreamBase(this, mode).toSyncStream()
 
-fun InputStream.toSyncStream(): SyncInputStream {
-	val iss = this
-	val tempByte = ByteArray(1)
-	return object : SyncInputStream {
-		override fun read(buffer: ByteArray, offset: Int, len: Int): Int {
-			return iss.read(buffer, offset, len)
-		}
-
-		override fun read(): Int {
-			val size = read(tempByte, 0, 1)
-			if (size <= 0) return -1
-			return tempByte[0].unsigned
-		}
-	}
-}
+@Deprecated("Use toSyncInputStream instead", ReplaceWith("openSync(mode)"))
+fun InputStream.toSyncStream(): SyncInputStream = toSyncInputStream()
 
 fun SyncStream.toInputStream(): InputStream {
 	val ss = this
