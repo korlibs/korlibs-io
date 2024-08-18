@@ -2599,6 +2599,11 @@ public final class korlibs/io/serialization/xml/XmlExtKt {
 	public static final fun readXml (Lkorlibs/io/file/VfsFile;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
+public final class korlibs/io/stream/AsyncStreamExt_jvmKt {
+	public static final fun toAsync (Ljava/io/InputStream;Lkotlin/coroutines/CoroutineContext;Ljava/lang/Long;)Lkorlibs/io/stream/AsyncInputStream;
+	public static synthetic fun toAsync$default (Ljava/io/InputStream;Lkotlin/coroutines/CoroutineContext;Ljava/lang/Long;ILjava/lang/Object;)Lkorlibs/io/stream/AsyncInputStream;
+}
+
 public final class korlibs/io/stream/AsyncStream_fileKt {
 	public static final fun asVfsFile (Lkorlibs/io/stream/AsyncStream;Ljava/lang/String;)Lkorlibs/io/file/VfsFile;
 	public static synthetic fun asVfsFile$default (Lkorlibs/io/stream/AsyncStream;Ljava/lang/String;ILjava/lang/Object;)Lkorlibs/io/file/VfsFile;
@@ -2646,9 +2651,29 @@ public final class korlibs/io/stream/CharReaderFromSyncStreamKt {
 	public static synthetic fun toCharReader$default ([BLkorlibs/io/lang/Charset;IILjava/lang/Object;)Lkorlibs/io/stream/CharReader;
 }
 
+public final class korlibs/io/stream/FileSyncStreamBase : korlibs/io/stream/SyncStreamBase {
+	public fun <init> (Ljava/io/File;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/io/File;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun close ()V
+	public final fun getFile ()Ljava/io/File;
+	public fun getLength ()J
+	public final fun getMode ()Ljava/lang/String;
+	public final fun getRa ()Ljava/io/RandomAccessFile;
+	public fun read (J[BII)I
+	public fun setLength (J)V
+	public fun write (J[BII)V
+}
+
 public final class korlibs/io/stream/JavaExKt {
 	public static final fun toSyncInputStream (Ljava/io/InputStream;)Lkorlibs/io/stream/SyncInputStream;
 	public static final fun toSyncOutputStream (Ljava/io/OutputStream;)Lkorlibs/io/stream/SyncOutputStream;
+}
+
+public final class korlibs/io/stream/SyncStreamExt_jvmKt {
+	public static final fun openSync (Ljava/io/File;Ljava/lang/String;)Lkorlibs/io/stream/SyncStream;
+	public static synthetic fun openSync$default (Ljava/io/File;Ljava/lang/String;ILjava/lang/Object;)Lkorlibs/io/stream/SyncStream;
+	public static final fun toInputStream (Lkorlibs/io/stream/SyncStream;)Ljava/io/InputStream;
+	public static final fun toSyncStream (Ljava/io/InputStream;)Lkorlibs/io/stream/SyncInputStream;
 }
 
 public final class korlibs/io/time/TraceTimeKt {
