@@ -46,5 +46,6 @@ fun SyncStream.toInputStream(): InputStream {
 		override fun read(): Int = if (ss.eof) -1 else ss.readU8()
 		override fun read(b: ByteArray, off: Int, len: Int): Int = ss.read(b, off, len)
 		override fun available(): Int = ss.available.toInt()
+		override fun close() = this@toInputStream.close()
 	}
 }
