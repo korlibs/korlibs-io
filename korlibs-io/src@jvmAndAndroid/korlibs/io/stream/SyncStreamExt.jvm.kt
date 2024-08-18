@@ -1,6 +1,5 @@
 package korlibs.io.stream
 
-import korlibs.math.*
 import java.io.*
 
 class FileSyncStreamBase(val file: java.io.File, val mode: String = "r") : SyncStreamBase() {
