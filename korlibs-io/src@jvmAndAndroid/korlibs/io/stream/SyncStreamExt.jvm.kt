@@ -1,6 +1,5 @@
 package korlibs.io.stream
 
-import korlibs.math.*
 import java.io.*
 
 class FileSyncStreamBase(val file: java.io.File, val mode: String = "r") : SyncStreamBase() {
@@ -25,21 +24,8 @@ class FileSyncStreamBase(val file: java.io.File, val mode: String = "r") : SyncS
 
 fun File.openSync(mode: String = "r"): SyncStream = FileSyncStreamBase(this, mode).toSyncStream()
 
-fun InputStream.toSyncStream(): SyncInputStream {
-	val iss = this
-	val tempByte = ByteArray(1)
-	return object : SyncInputStream {
-		override fun read(buffer: ByteArray, offset: Int, len: Int): Int {
-			return iss.read(buffer, offset, len)
-		}
-
-		override fun read(): Int {
-			val size = read(tempByte, 0, 1)
-			if (size <= 0) return -1
-			return tempByte[0].unsigned
-		}
-	}
-}
+@Deprecated("Use toSyncInputStream instead", ReplaceWith("openSync(mode)"))
+fun InputStream.toSyncStream(): SyncInputStream = toSyncInputStream()
 
 fun SyncStream.toInputStream(): InputStream {
 	val ss = this
@@ -47,5 +33,6 @@ fun SyncStream.toInputStream(): InputStream {
 		override fun read(): Int = if (ss.eof) -1 else ss.readU8()
 		override fun read(b: ByteArray, off: Int, len: Int): Int = ss.read(b, off, len)
 		override fun available(): Int = ss.available.toInt()
+		override fun close() = this@toInputStream.close()
 	}
 }
