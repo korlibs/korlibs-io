@@ -6,6 +6,7 @@ import korlibs.io.compression.deflate.*
 import korlibs.io.compression.lzma.*
 import korlibs.io.file.*
 import korlibs.io.file.std.*
+import java.io.File
 import kotlin.test.*
 
 class ZipBuilderTest {
@@ -47,4 +48,18 @@ class ZipBuilderTest {
         )
 
     }
+
+    @Test
+    fun testZip() = suspendTest {
+        val vfs = MemoryVfs()
+        val indexFile = vfs["textFileTest.txt"]
+        indexFile.writeString("TestCode")
+        val mediaFolder = vfs["subfolder"]
+        mediaFolder.mkdir()
+        mediaFolder["test.txt"].writeString("TestCode")
+        val bytes = vfs.createZipFromTree()
+        val file = File("zipTest.zip")
+        file.writeBytes(bytes)
+    }
+    
 }

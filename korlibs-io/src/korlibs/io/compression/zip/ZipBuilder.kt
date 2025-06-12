@@ -7,6 +7,7 @@ import korlibs.io.lang.*
 import korlibs.io.stream.*
 import korlibs.io.util.checksum.*
 import korlibs.memory.*
+import korlibs.time.DateTimeTz
 
 class ZipBuilder {
     companion object {
@@ -25,6 +26,24 @@ class ZipBuilder {
                 createZipFromTreeTo(folder, this, compression, useFolderAsRoot)
             }
             return zipFile
+        }
+
+        private fun dosDate(dt: DateTimeTz): Int {
+            val year = dt.yearInt - 1980
+            val month = dt.month1
+            val day = dt.dayOfMonth
+            return (day and 0x1F) or
+                    ((month and 0x0F) shl 5) or
+                    ((year and 0x7F) shl 9)
+        }
+
+        private fun dosTime(dt: DateTimeTz): Int {
+            val hour = dt.hours
+            val minute = dt.minutes
+            val second = dt.seconds / 2
+            return (second and 0x1F) or
+                    ((minute and 0x3F) shl 5) or
+                    ((hour and 0x1F) shl 11)
         }
 
         suspend fun createZipFromTreeTo(
@@ -70,8 +89,9 @@ class ZipBuilder {
             val flags = 2048
             val compressionMethod = compression.zipId
             val compressed = compressionMethod != 0
-            val date = 0
-            val time = 0
+            val dt = DateTimeTz.nowLocal()
+            val date = dosDate(dt)
+            val time = dosTime(dt)
             //var crc32 = if (compressed) 0 else entry.checksum(CRC32)
             var crc32 = entry.checksum(CRC32)
             val name = entry.fullName.trim('/')
@@ -90,8 +110,8 @@ class ZipBuilder {
                 write16LE(extractVersion)
                 write16LE(flags)
                 write16LE(compressionMethod)
-                write16LE(date)
                 write16LE(time)
+                write16LE(date)
                 write32LE(crc32)
                 write32LE(compressedSize)
                 write32LE(uncompressedSize)

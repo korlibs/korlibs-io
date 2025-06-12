@@ -24,7 +24,7 @@ dependencies:
   - com.soywiz:korlibs-platform:6.0.0: exported
   - com.soywiz:korlibs-datastructure:6.0.0: exported
   - com.soywiz:korlibs-number:6.0.0: exported
-  - com.soywiz:korlibs-time-core:6.0.0: exported
+  - com.soywiz:korlibs-time:6.0.0: exported
   - com.soywiz:korlibs-logger:6.0.0: exported
   - com.soywiz:korlibs-dyn:6.0.0: exported
   - com.soywiz:korlibs-string:6.0.0: exported
