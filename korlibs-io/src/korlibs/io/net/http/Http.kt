@@ -51,14 +51,14 @@ interface Http {
 			val valuesMap = _values.map { it.name to it }.toMap()
 
 			operator fun get(name: String): Method =
-				valuesMap.getOrElse(name.toUpperCase().trim()) { CustomMethod(name) }
+				valuesMap.getOrElse(name.uppercase().trim()) { CustomMethod(name) }
 
 			operator fun invoke(name: String): Method = this[name]
 		}
 	}
 
 	data class CustomMethod(val _name: String) : Method {
-		val nameUC = _name.trim().toUpperCase()
+		val nameUC = _name.trim().uppercase()
 		override val name get() = nameUC
 		override fun toString(): String = nameUC
 	}
@@ -145,16 +145,16 @@ interface Http {
 		fun getFirst(key: String): String? = items.firstOrNull { it.first.equals(key, ignoreCase = true) }?.second
 
 		fun toListGrouped(): List<Pair<String, List<String>>> {
-			return this.items.groupBy { it.first.toLowerCase() }
-				.map { it.value.first().first to it.value.map { it.second } }.sortedBy { it.first.toLowerCase() }
+			return this.items.groupBy { it.first.uppercase() }
+				.map { it.value.first().first to it.value.map { it.second } }.sortedBy { it.first.uppercase() }
 		}
 
 		fun withAppendedHeaders(newHeaders: List<Pair<String, String>>): Headers =
 			Headers(this.items + newHeaders.toList())
 
 		fun withReplaceHeaders(newHeaders: List<Pair<String, String>>): Headers {
-			val replaceKeys = newHeaders.map { it.first.toLowerCase() }.toSet()
-			return Headers(this.items.filter { it.first.toLowerCase() !in replaceKeys } + newHeaders.toList())
+			val replaceKeys = newHeaders.map { it.first.uppercase() }.toSet()
+			return Headers(this.items.filter { it.first.uppercase() !in replaceKeys } + newHeaders.toList())
 		}
 
 		fun withAppendedHeaders(vararg newHeaders: Pair<String, String>): Headers =

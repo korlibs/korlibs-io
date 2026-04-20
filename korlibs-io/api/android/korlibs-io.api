@@ -991,13 +991,13 @@ public final class korlibs/io/file/std/StandardPaths : korlibs/io/file/std/Stand
 }
 
 public abstract interface class korlibs/io/file/std/StandardPathsBase {
-	public abstract fun appPreferencesFolder (Ljava/lang/String;)Ljava/lang/String;
-	public abstract fun getCwd ()Ljava/lang/String;
-	public abstract fun getExecutableFile ()Ljava/lang/String;
-	public abstract fun getExecutableFolder ()Ljava/lang/String;
-	public abstract fun getResourcesFolder ()Ljava/lang/String;
-	public abstract fun getTemp ()Ljava/lang/String;
-	public abstract fun getUserHome ()Ljava/lang/String;
+	public fun appPreferencesFolder (Ljava/lang/String;)Ljava/lang/String;
+	public fun getCwd ()Ljava/lang/String;
+	public fun getExecutableFile ()Ljava/lang/String;
+	public fun getExecutableFolder ()Ljava/lang/String;
+	public fun getResourcesFolder ()Ljava/lang/String;
+	public fun getTemp ()Ljava/lang/String;
+	public fun getUserHome ()Ljava/lang/String;
 }
 
 public final class korlibs/io/file/std/StandardPathsBase$DefaultImpls {
@@ -1164,21 +1164,22 @@ public class korlibs/io/file/sync/SyncExecProcess : java/lang/AutoCloseable {
 
 public abstract interface class korlibs/io/file/sync/SyncIO {
 	public static final field Companion Lkorlibs/io/file/sync/SyncIO$Companion;
-	public abstract fun delete (Ljava/lang/String;)Z
-	public abstract fun exec (Ljava/util/List;Ljava/util/Map;Ljava/lang/String;)Lkorlibs/io/file/sync/SyncExecProcess;
-	public abstract fun list (Ljava/lang/String;)Ljava/util/List;
-	public abstract fun mkdir (Ljava/lang/String;)Z
-	public abstract fun open (Ljava/lang/String;Ljava/lang/String;)Lkorlibs/io/file/sync/SyncIOFD;
-	public abstract fun readAllBytes (Ljava/lang/String;)[B
-	public abstract fun readString (Ljava/lang/String;)Ljava/lang/String;
-	public abstract fun readlink (Ljava/lang/String;)Ljava/lang/String;
-	public abstract fun realpath (Ljava/lang/String;)Ljava/lang/String;
-	public abstract fun rmdir (Ljava/lang/String;)Z
-	public abstract fun stat (Ljava/lang/String;)Lkorlibs/io/file/sync/SyncIOStat;
-	public abstract fun write (Ljava/lang/String;[B)V
-	public abstract fun writeAllBytes (Ljava/lang/String;[B)V
-	public abstract fun writeString (Ljava/lang/String;Ljava/lang/String;)V
-	public abstract fun writelink (Ljava/lang/String;Ljava/lang/String;)V
+	public fun delete (Ljava/lang/String;)Z
+	public fun exec (Ljava/util/List;Ljava/util/Map;Ljava/lang/String;)Lkorlibs/io/file/sync/SyncExecProcess;
+	public static synthetic fun exec$default (Lkorlibs/io/file/sync/SyncIO;Ljava/util/List;Ljava/util/Map;Ljava/lang/String;ILjava/lang/Object;)Lkorlibs/io/file/sync/SyncExecProcess;
+	public fun list (Ljava/lang/String;)Ljava/util/List;
+	public fun mkdir (Ljava/lang/String;)Z
+	public fun open (Ljava/lang/String;Ljava/lang/String;)Lkorlibs/io/file/sync/SyncIOFD;
+	public fun readAllBytes (Ljava/lang/String;)[B
+	public fun readString (Ljava/lang/String;)Ljava/lang/String;
+	public fun readlink (Ljava/lang/String;)Ljava/lang/String;
+	public fun realpath (Ljava/lang/String;)Ljava/lang/String;
+	public fun rmdir (Ljava/lang/String;)Z
+	public fun stat (Ljava/lang/String;)Lkorlibs/io/file/sync/SyncIOStat;
+	public fun write (Ljava/lang/String;[B)V
+	public fun writeAllBytes (Ljava/lang/String;[B)V
+	public fun writeString (Ljava/lang/String;Ljava/lang/String;)V
+	public fun writelink (Ljava/lang/String;Ljava/lang/String;)V
 }
 
 public final class korlibs/io/file/sync/SyncIO$Companion : korlibs/io/file/sync/SyncIO {
@@ -1225,9 +1226,11 @@ public abstract interface class korlibs/io/file/sync/SyncIOFD : java/lang/AutoCl
 	public abstract fun getLength ()J
 	public abstract fun getPosition ()J
 	public abstract fun read ([BII)I
+	public static synthetic fun read$default (Lkorlibs/io/file/sync/SyncIOFD;[BIIILjava/lang/Object;)I
 	public abstract fun setLength (J)V
 	public abstract fun setPosition (J)V
 	public abstract fun write ([BII)I
+	public static synthetic fun write$default (Lkorlibs/io/file/sync/SyncIOFD;[BIIILjava/lang/Object;)I
 }
 
 public final class korlibs/io/file/sync/SyncIOFD$DefaultImpls {
@@ -1340,7 +1343,7 @@ public abstract interface class korlibs/io/net/AsyncClient : korlibs/io/async/As
 	public static final field Companion Lkorlibs/io/net/AsyncClient$Companion;
 	public abstract fun close (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun connect (Ljava/lang/String;ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun getAddress ()Lkorlibs/io/net/HostWithPort;
+	public fun getAddress ()Lkorlibs/io/net/HostWithPort;
 	public abstract fun getConnected ()Z
 	public abstract fun read ([BIILkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun write ([BIILkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -1372,13 +1375,13 @@ public final class korlibs/io/net/AsyncClient$Stats {
 public abstract interface class korlibs/io/net/AsyncServer : korlibs/io/async/AsyncCloseable {
 	public static final field Companion Lkorlibs/io/net/AsyncServer$Companion;
 	public abstract fun accept (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun close (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun close (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getBacklog ()I
 	public abstract fun getHost ()Ljava/lang/String;
 	public abstract fun getPort ()I
 	public abstract fun getRequestPort ()I
-	public abstract fun listen (Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun listenFlow (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listen (Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listenFlow (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class korlibs/io/net/AsyncServer$Companion {
@@ -1968,17 +1971,26 @@ public final class korlibs/io/net/http/HttpBodyContentMultiPartFormData$Entry {
 
 public abstract interface class korlibs/io/net/http/HttpClient {
 	public static final field Companion Lkorlibs/io/net/http/HttpClient$Companion;
-	public abstract fun getIgnoreSslCertificates ()Z
-	public abstract fun post (Ljava/lang/String;Lkorlibs/io/net/http/HttpBodyContent;Lkorlibs/io/net/http/Http$Headers;Lkorlibs/io/net/http/HttpClient$RequestConfig;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun readBytes (Ljava/lang/String;Lkorlibs/io/net/http/HttpClient$RequestConfig;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun readJson (Ljava/lang/String;Lkorlibs/io/net/http/HttpClient$RequestConfig;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun readString (Ljava/lang/String;Lkorlibs/io/net/http/HttpClient$RequestConfig;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun request (Lkorlibs/io/net/http/Http$Method;Ljava/lang/String;Lkorlibs/io/net/http/Http$Headers;Lkorlibs/io/stream/AsyncInputStreamWithLength;Lkorlibs/io/net/http/HttpClient$RequestConfig;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun request (Lkorlibs/io/net/http/Http$Method;Ljava/lang/String;Lkorlibs/io/net/http/HttpBodyContent;Lkorlibs/io/net/http/Http$Headers;Lkorlibs/io/net/http/HttpClient$RequestConfig;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun requestAsBytes (Lkorlibs/io/net/http/Http$Method;Ljava/lang/String;Lkorlibs/io/net/http/Http$Headers;Lkorlibs/io/stream/AsyncStream;Lkorlibs/io/net/http/HttpClient$RequestConfig;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun requestAsString (Lkorlibs/io/net/http/Http$Method;Ljava/lang/String;Lkorlibs/io/net/http/Http$Headers;Lkorlibs/io/stream/AsyncStream;Lkorlibs/io/net/http/HttpClient$RequestConfig;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getIgnoreSslCertificates ()Z
+	public fun post (Ljava/lang/String;Lkorlibs/io/net/http/HttpBodyContent;Lkorlibs/io/net/http/Http$Headers;Lkorlibs/io/net/http/HttpClient$RequestConfig;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun post$default (Lkorlibs/io/net/http/HttpClient;Ljava/lang/String;Lkorlibs/io/net/http/HttpBodyContent;Lkorlibs/io/net/http/Http$Headers;Lkorlibs/io/net/http/HttpClient$RequestConfig;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public fun readBytes (Ljava/lang/String;Lkorlibs/io/net/http/HttpClient$RequestConfig;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun readBytes$default (Lkorlibs/io/net/http/HttpClient;Ljava/lang/String;Lkorlibs/io/net/http/HttpClient$RequestConfig;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public fun readJson (Ljava/lang/String;Lkorlibs/io/net/http/HttpClient$RequestConfig;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun readJson$default (Lkorlibs/io/net/http/HttpClient;Ljava/lang/String;Lkorlibs/io/net/http/HttpClient$RequestConfig;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public fun readString (Ljava/lang/String;Lkorlibs/io/net/http/HttpClient$RequestConfig;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun readString$default (Lkorlibs/io/net/http/HttpClient;Ljava/lang/String;Lkorlibs/io/net/http/HttpClient$RequestConfig;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public fun request (Lkorlibs/io/net/http/Http$Method;Ljava/lang/String;Lkorlibs/io/net/http/Http$Headers;Lkorlibs/io/stream/AsyncInputStreamWithLength;Lkorlibs/io/net/http/HttpClient$RequestConfig;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun request (Lkorlibs/io/net/http/Http$Method;Ljava/lang/String;Lkorlibs/io/net/http/HttpBodyContent;Lkorlibs/io/net/http/Http$Headers;Lkorlibs/io/net/http/HttpClient$RequestConfig;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun request$default (Lkorlibs/io/net/http/HttpClient;Lkorlibs/io/net/http/Http$Method;Ljava/lang/String;Lkorlibs/io/net/http/Http$Headers;Lkorlibs/io/stream/AsyncInputStreamWithLength;Lkorlibs/io/net/http/HttpClient$RequestConfig;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun request$default (Lkorlibs/io/net/http/HttpClient;Lkorlibs/io/net/http/Http$Method;Ljava/lang/String;Lkorlibs/io/net/http/HttpBodyContent;Lkorlibs/io/net/http/Http$Headers;Lkorlibs/io/net/http/HttpClient$RequestConfig;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public fun requestAsBytes (Lkorlibs/io/net/http/Http$Method;Ljava/lang/String;Lkorlibs/io/net/http/Http$Headers;Lkorlibs/io/stream/AsyncStream;Lkorlibs/io/net/http/HttpClient$RequestConfig;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun requestAsBytes$default (Lkorlibs/io/net/http/HttpClient;Lkorlibs/io/net/http/Http$Method;Ljava/lang/String;Lkorlibs/io/net/http/Http$Headers;Lkorlibs/io/stream/AsyncStream;Lkorlibs/io/net/http/HttpClient$RequestConfig;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public fun requestAsString (Lkorlibs/io/net/http/Http$Method;Ljava/lang/String;Lkorlibs/io/net/http/Http$Headers;Lkorlibs/io/stream/AsyncStream;Lkorlibs/io/net/http/HttpClient$RequestConfig;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun requestAsString$default (Lkorlibs/io/net/http/HttpClient;Lkorlibs/io/net/http/Http$Method;Ljava/lang/String;Lkorlibs/io/net/http/Http$Headers;Lkorlibs/io/stream/AsyncStream;Lkorlibs/io/net/http/HttpClient$RequestConfig;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
 	public abstract fun requestInternal (Lkorlibs/io/net/http/Http$Method;Ljava/lang/String;Lkorlibs/io/net/http/Http$Headers;Lkorlibs/io/stream/AsyncInputStreamWithLength;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun setIgnoreSslCertificates (Z)V
+	public static synthetic fun requestInternal$default (Lkorlibs/io/net/http/HttpClient;Lkorlibs/io/net/http/Http$Method;Ljava/lang/String;Lkorlibs/io/net/http/Http$Headers;Lkorlibs/io/stream/AsyncInputStreamWithLength;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public fun setIgnoreSslCertificates (Z)V
 }
 
 public final class korlibs/io/net/http/HttpClient$Companion : korlibs/io/net/http/HttpClient {
@@ -2103,6 +2115,7 @@ public final class korlibs/io/net/http/HttpClient$Response$Companion {
 
 public abstract interface class korlibs/io/net/http/HttpClientEndpoint {
 	public abstract fun request (Lkorlibs/io/net/http/Http$Method;Ljava/lang/String;Lkorlibs/io/net/http/Http$Headers;Lkorlibs/io/stream/AsyncStream;Lkorlibs/io/net/http/HttpClient$RequestConfig;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun request$default (Lkorlibs/io/net/http/HttpClientEndpoint;Lkorlibs/io/net/http/Http$Method;Ljava/lang/String;Lkorlibs/io/net/http/Http$Headers;Lkorlibs/io/stream/AsyncStream;Lkorlibs/io/net/http/HttpClient$RequestConfig;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
 }
 
 public final class korlibs/io/net/http/HttpClientEndpoint$DefaultImpls {

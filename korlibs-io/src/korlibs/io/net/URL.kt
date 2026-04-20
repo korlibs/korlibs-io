@@ -210,7 +210,7 @@ data class URL private constructor(
 			//for (byte c : data) System.out.printf("%02X\n", c & 0xFF);
 			for (n in 0 until data.size) {
 				val c = data[n]
-				val cc = c.toChar()
+				val cc = c.toInt().toChar()
 				when (cc) {
 					' ' -> if (formUrlEncoded) sb.append("+") else sb.append("%20")
 					in 'a'..'z', in 'A'..'Z', in '0'..'9', '-', '_', '.', '*' -> sb.append(cc)

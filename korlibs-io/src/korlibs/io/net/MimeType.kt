@@ -34,7 +34,7 @@ class MimeType(val mime: String, val exts: List<String>) : Vfs.Attribute {
 			register(
 				MimeType(
 					mime,
-					exsts.map(String::toLowerCase)
+					exsts.map(String::lowercase)
 				)
 			)
 		}
@@ -54,7 +54,7 @@ class MimeType(val mime: String, val exts: List<String>) : Vfs.Attribute {
 		}
 
         fun getByExtensionOrNull(ext: String): MimeType? =
-            MimeType_byExtensions[ext.toLowerCase()]
+            MimeType_byExtensions[ext.lowercase()]
 
         fun getByExtension(ext: String, default: MimeType = APPLICATION_OCTET_STREAM): MimeType =
             getByExtensionOrNull(ext) ?: default

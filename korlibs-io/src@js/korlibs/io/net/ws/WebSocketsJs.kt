@@ -3,7 +3,7 @@ package korlibs.io.net.ws
 import korlibs.io.async.*
 import korlibs.io.net.http.Http
 import korlibs.io.util.*
-import org.khronos.webgl.*
+import org.khronos.webgl.ArrayBuffer
 import org.w3c.dom.*
 
 actual suspend fun WebSocketClient(

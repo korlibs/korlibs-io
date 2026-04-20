@@ -2,7 +2,7 @@ package korlibs.io.lang
 
 import korlibs.io.util.*
 import korlibs.memory.*
-import org.khronos.webgl.*
+import org.khronos.webgl.Int8Array
 
 /**
  * This won't support streaming decoding

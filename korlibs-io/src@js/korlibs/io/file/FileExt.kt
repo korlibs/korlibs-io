@@ -6,7 +6,8 @@ import korlibs.io.util.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.asFlow
-import org.khronos.webgl.*
+import org.khronos.webgl.Int8Array
+import org.khronos.webgl.ArrayBuffer
 import org.w3c.files.*
 import kotlin.math.*
 
