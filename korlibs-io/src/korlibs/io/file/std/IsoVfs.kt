@@ -186,7 +186,7 @@ object ISO {
 			}
 		}
 
-		private fun String.normalizeName() = this.toLowerCase()
+		private fun String.normalizeName() = this.lowercase()
 
 		suspend fun open2(mode: VfsOpenMode) = reader.getSector(record.extent, record.size)
 		operator fun get(name: String): IsoFile {

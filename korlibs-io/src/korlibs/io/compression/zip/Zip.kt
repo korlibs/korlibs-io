@@ -40,7 +40,7 @@ class ZipFile private constructor(
         internal val PK_END = byteArrayOf(0x50, 0x4B, 0x05, 0x06)
     }
 
-    fun normalizeName(name: String) = if (caseSensitive) name.trim('/') else name.trim('/').toLowerCase()
+    fun normalizeName(name: String) = if (caseSensitive) name.trim('/') else name.trim('/').lowercase()
 
     private suspend fun read() {
         //println("ZipFile reading...[0]")
